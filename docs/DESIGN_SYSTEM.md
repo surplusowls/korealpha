@@ -6,16 +6,17 @@ Last updated: 2026-05-17
 
 Korealpha uses a product landing plus working demo app structure:
 
-- `/` is a credible SaaS-style landing page.
-- `/markets/seoul-mayor-2026` is the live market-intelligence demo.
+- `/` is a dark-first commercial landing page for an AI research desk.
+- `/markets/seoul-mayor-2026` is the matching live market-intelligence demo.
 
 The design direction is:
 
-> Credible AI Market Intelligence SaaS.
+> Dark-first AI research desk for prediction markets.
 
 The goal is not to invent a custom visual identity from scratch. The goal is to
-ship a product-quality surface using Tailwind CSS, shadcn/ui, and a stable token
-system so AI agents do not drift across pages.
+ship a product-quality surface using Tailwind CSS, shadcn/ui, a stable token
+system, and selectively reviewed community blocks so AI agents do not drift
+across pages.
 
 ## Why This Direction
 
@@ -28,11 +29,13 @@ innovation. Korealpha therefore needs both:
 
 Similar agent and prediction-market hackathon projects commonly present a
 polished landing surface plus a usable app or terminal. For a small team, using
-existing shadcn/Tailwind patterns is higher leverage than custom art direction.
+existing shadcn/Tailwind patterns and carefully reviewed Tailark/React Bits-style
+components is higher leverage than custom art direction.
 
 ## Source Of Truth
 
 - Requirements: `docs/brainstorms/design-system-requirements.md`
+- Landing V2 requirements: `docs/brainstorms/landing-v2-requirements.md`
 - Agent-readable visual contract: `DESIGN.md`
 - Frontend rules: `.agents/rules/frontend.md`
 - Design workflow skill: `.agents/skills/korealpha-design/SKILL.md`
@@ -52,17 +55,21 @@ Required sections:
 
 1. Navigation with product name and demo CTA.
 2. Hero with `Read Korea before the market does.`
-3. Problem section for Korean local-information asymmetry.
-4. How-it-works section:
+3. Product dashboard mockup showing market probability, Korealpha probability,
+   edge, evidence, decision receipt, and Arc Testnet proof.
+4. Proof strip with concrete demo metrics.
+5. Problem section for Korean local-information asymmetry.
+6. How-it-works section:
    - collect evidence
    - score credibility and impact
    - estimate probability
    - compare market price
    - commit paper trade on Arc Testnet
-5. Live demo preview for the Seoul mayoral market.
-6. Agentic proof section with receipt and Arc transfer.
-7. Traction metrics.
-8. Footer with GitHub/demo/docs links when available.
+7. Capability grid for the research desk.
+8. Source-backed evidence snapshot.
+9. Agentic proof section with receipt and Arc transfer.
+10. Risk FAQ covering uncertainty, testnet-only action, and paper trading.
+11. Footer with GitHub/demo/docs links when available.
 
 ### Demo App
 
@@ -85,11 +92,14 @@ Required areas:
 - Use shadcn/ui components before custom markup.
 - Use semantic tokens, not raw color utilities.
 - Keep `base-nova` as the shadcn base style.
-- Use a neutral graphite surface system with one restrained blue-green accent.
+- Use a dark graphite surface system with one restrained blue-green accent.
 - Keep card radius moderate, generally 8px or less.
 - Use borders and subtle contrast instead of heavy shadows.
 - Keep landing and app pages visually related.
 - Keep dashboards dense and scannable.
+- Use product UI as the primary visual asset; avoid abstract-only hero art.
+- Do not add external registry components until the shortlist approval gate has
+  been satisfied.
 
 Avoid:
 
@@ -98,6 +108,7 @@ Avoid:
 - crypto meme or cyberpunk styling
 - generic purple AI SaaS gradients
 - decorative blobs, bokeh, and glassmorphism
+- broad glow/cyberpunk treatment
 - nested cards
 - placeholder marketing copy
 
@@ -110,6 +121,10 @@ Avoid:
 - Icons in buttons must use `data-icon`.
 - Do not recreate badges, buttons, tables, or status chips with raw `div`/`span`
   styling when a shadcn component fits.
+- Tailark is preferred for section structure when approved.
+- React Bits is preferred for selective high-impact motion when approved.
+- Magic UI and Kokonut UI are secondary candidates for specific effects or
+  widgets.
 
 ## Verification
 

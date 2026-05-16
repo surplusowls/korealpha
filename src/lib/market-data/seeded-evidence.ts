@@ -1,4 +1,5 @@
 import type { EvidenceDirection } from "@/lib/agent/schemas";
+import { seoulMayorDemo } from "@/lib/market-data/seoul-mayor-demo";
 
 export type SeededEvidence = {
   id: string;
@@ -10,38 +11,21 @@ export type SeededEvidence = {
 };
 
 const seededEvidence: SeededEvidence[] = [
-  {
-    id: "incumbency",
-    marketId: "seoul-mayor-2026",
-    title: "Incumbency and Seoul administrative visibility",
-    direction: "favorable",
-    score: 82,
-    source: "Local political context",
-  },
-  {
-    id: "name-recognition",
-    marketId: "seoul-mayor-2026",
-    title: "High recognition from prior Seoul mayoral campaigns",
-    direction: "favorable",
-    score: 76,
-    source: "Election history fixture",
-  },
-  {
-    id: "party-primary",
-    marketId: "seoul-mayor-2026",
-    title: "Nomination path can change before campaign season",
-    direction: "unfavorable",
-    score: 61,
-    source: "Party process fixture",
-  },
-  {
-    id: "national-mood",
-    marketId: "seoul-mayor-2026",
-    title: "National approval swings can dominate local fundamentals",
-    direction: "unfavorable",
-    score: 58,
-    source: "Macro politics fixture",
-  },
+  ...seoulMayorDemo.evidence.map((item) => ({
+    id: item.id,
+    marketId: item.marketId,
+    title: item.title,
+    direction: item.direction,
+    score: Math.round(
+      (item.relevanceScore +
+        item.credibilityScore +
+        item.recencyScore +
+        item.impactScore +
+        item.confidenceScore) /
+        5,
+    ),
+    source: item.sourceName,
+  })),
 ];
 
 export function getSeededEvidenceForMarket(marketId: string) {

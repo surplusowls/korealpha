@@ -1,4 +1,5 @@
 import type { AgentDecision } from "@/lib/agent/schemas";
+import { seoulMayorDemo } from "@/lib/market-data/seoul-mayor-demo";
 
 export type SeededMarket = {
   id: string;
@@ -19,25 +20,20 @@ export type SeededMarket = {
 
 const seededMarkets: SeededMarket[] = [
   {
-    id: "seoul-mayor-2026",
-    title: "2026 Seoul Mayoral Election Winner",
-    description:
-      "Demo market focused on whether Oh Se-hoon wins the next Seoul mayoral election.",
-    outcome: "Oh Se-hoon YES",
-    source: "Seeded Polymarket fixture",
-    polymarketUrl: "https://polymarket.com/",
-    marketProbability: 0.42,
-    agentProbability: 0.51,
-    probabilityRange: {
-      low: 0.45,
-      high: 0.57,
-    },
-    edge: 0.09,
-    confidence: "high",
-    action: "trade",
-    suggestedExposureUsdc: 90,
-    rationale:
-      "Incumbency and Seoul-specific name recognition create a positive edge, but party nomination and national approval remain material risks.",
+    id: seoulMayorDemo.id,
+    title: seoulMayorDemo.title,
+    description: seoulMayorDemo.description,
+    outcome: seoulMayorDemo.outcome,
+    source: seoulMayorDemo.source,
+    polymarketUrl: seoulMayorDemo.polymarketUrl,
+    marketProbability: seoulMayorDemo.marketProbability,
+    agentProbability: seoulMayorDemo.agentProbability,
+    probabilityRange: seoulMayorDemo.probabilityRange,
+    edge: seoulMayorDemo.edge,
+    confidence: seoulMayorDemo.confidence,
+    action: seoulMayorDemo.action,
+    suggestedExposureUsdc: seoulMayorDemo.suggestedExposureUsdc,
+    rationale: seoulMayorDemo.rationale,
   },
 ];
 

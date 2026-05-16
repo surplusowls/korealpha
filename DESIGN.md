@@ -1,25 +1,25 @@
 ---
 version: alpha
 name: Korealpha
-description: Credible AI market-intelligence SaaS for Korean prediction-market alpha.
+description: Dark-first AI research desk for Korean prediction-market alpha.
 colors:
-  primary: "#121417"
-  primary-foreground: "#F8FAFC"
-  secondary: "#E7ECEF"
-  secondary-foreground: "#171A1F"
+  primary: "#F8FAFC"
+  primary-foreground: "#07110F"
+  secondary: "#14201D"
+  secondary-foreground: "#E5EEF0"
   accent: "#0F766E"
   accent-foreground: "#ECFDF5"
-  neutral: "#F8FAFC"
-  surface: "#FFFFFF"
-  muted: "#EEF2F5"
-  muted-foreground: "#56616D"
-  border: "#DDE3EA"
+  neutral: "#07110F"
+  surface: "#0B1412"
+  muted: "#101B18"
+  muted-foreground: "#91A5A0"
+  border: "#21312D"
   success: "#0F766E"
   warning: "#A16207"
-  destructive: "#B42318"
+  destructive: "#E5484D"
   chart-positive: "#0F766E"
-  chart-negative: "#B42318"
-  chart-neutral: "#64707D"
+  chart-negative: "#E5484D"
+  chart-neutral: "#91A5A0"
 typography:
   display:
     fontFamily: Geist Sans
@@ -111,7 +111,7 @@ components:
     rounded: "{rounded.sm}"
   badge-warning:
     backgroundColor: "{colors.warning}"
-    textColor: "{colors.primary-foreground}"
+    textColor: "{colors.accent-foreground}"
     rounded: "{rounded.sm}"
   badge-negative:
     backgroundColor: "{colors.destructive}"
@@ -119,7 +119,7 @@ components:
     rounded: "{rounded.sm}"
   chart-positive-bar:
     backgroundColor: "{colors.chart-positive}"
-    textColor: "{colors.primary-foreground}"
+    textColor: "{colors.accent-foreground}"
   chart-negative-bar:
     backgroundColor: "{colors.chart-negative}"
     textColor: "{colors.primary-foreground}"
@@ -130,23 +130,26 @@ components:
 
 ## Overview
 
-Korealpha is a credible AI market-intelligence SaaS product. It converts Korean
-local information into prediction-market intelligence, then shows the agent's
-reasoning and Arc Testnet paper-trade commitment.
+Korealpha is a dark-first AI research desk for prediction markets. It converts
+Korean local information into market intelligence, then shows the agent's
+reasoning, decision receipt, and Arc Testnet paper-trade commitment.
 
-The product should feel like a real startup landing page plus a working
+The product should feel like a commercial research terminal plus a working
 market-intelligence application. It should not feel like a political campaign,
-news magazine, crypto meme site, or generic purple AI SaaS template.
+news magazine, crypto meme site, cyberpunk demo, or generic purple AI SaaS
+template.
 
 ## Colors
 
-Use a neutral graphite base with a restrained blue-green accent. The neutral
-system creates trust and readability; the accent marks Korean alpha, positive
-edge, live agent decisions, and Arc/USDC proof.
+Use a dark graphite base with a restrained blue-green accent. The dark surface
+should feel category-native for prediction markets and Web3 proof, while the
+accent marks Korean alpha, positive edge, live agent decisions, and Arc/USDC
+proof.
 
-- **Primary:** near-black graphite for headings, primary actions, and strongest
-  UI emphasis.
-- **Neutral and surface:** clean light backgrounds for landing and app sections.
+- **Primary:** light foreground for headings, primary actions, and strongest UI
+  emphasis on dark surfaces.
+- **Neutral and surface:** dark graphite backgrounds for landing and app
+  sections.
 - **Muted:** low-emphasis dashboard surfaces, helper text, and receipt blocks.
 - **Accent:** use sparingly for active states, positive edge, proof, and key
   calls to action.
@@ -174,8 +177,9 @@ The product has two surfaces:
 2. `/markets/seoul-mayor-2026` is the working app surface. It shows market
    intelligence, evidence, agent reasoning, action, and Arc transaction proof.
 
-Landing layout should follow standard SaaS page structure: nav, hero, problem,
-how it works, demo preview, agentic proof, traction metrics, footer.
+Landing layout should follow commercial SaaS/Web3 structure: nav, hero with a
+product dashboard mockup, proof strip, problem, workflow, capabilities,
+source-backed evidence, agentic proof, risk FAQ, final CTA, and footer.
 
 App layout should be dense, scannable, and operational. Prioritize probability,
 edge, confidence, evidence, decision receipt, and transaction state over
@@ -185,7 +189,8 @@ decorative composition.
 
 Prefer borders and subtle surface contrast over heavy shadows. Use shadows only
 when they clarify hierarchy, such as floating nav or modal surfaces. Avoid
-layered glass panels and decorative blur effects.
+layered glass panels, decorative blur effects, gradient blobs, and visual noise
+that competes with the product dashboard.
 
 ## Shapes
 
@@ -223,6 +228,10 @@ Do:
 - Use real Korealpha content instead of placeholder marketing copy.
 - Keep landing and app pages visually related.
 - Preserve readability on mobile and desktop.
+- Use backend-ready seed data so API wiring can replace fixtures without a
+  layout redesign.
+- Review community UI libraries before installing them; produce a shortlist and
+  get approval before adding registry components.
 
 Don't:
 
@@ -232,3 +241,6 @@ Don't:
 - Use political campaign visuals or candidate branding.
 - Add decorative gradients, orbs, blobs, bokeh, or stock-like abstract imagery.
 - Introduce raw Tailwind color utilities when semantic tokens will work.
+- Install Tailark, React Bits, Magic UI, Kokonut UI, or similar components
+  without reviewing registry output, dependency weight, license, accessibility,
+  and base-ui compatibility.

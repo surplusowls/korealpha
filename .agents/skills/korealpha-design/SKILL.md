@@ -22,7 +22,7 @@ If product behavior changes, also read `docs/PRD.md`.
 
 ## Product Shape
 
-Korealpha is a credible AI market-intelligence SaaS product.
+Korealpha is a dark-first AI research desk for prediction markets.
 
 - `/` is the landing page.
 - `/markets/seoul-mayor-2026` is the working live demo.
@@ -35,10 +35,11 @@ Testnet action.
 
 Follow this direction:
 
-> Credible AI Market Intelligence SaaS.
+> Dark-first AI research desk for prediction markets.
 
-Use production-ready shadcn/Tailwind patterns instead of inventing a new visual
-style. The interface should feel like a real product a judge could use today.
+Use production-ready shadcn/Tailwind patterns and reviewed community components
+instead of inventing a new visual style. The interface should feel like a real
+product a judge could use today.
 
 ## Hard Rules
 
@@ -54,6 +55,8 @@ style. The interface should feel like a real product a judge could use today.
   generic purple AI gradients, decorative blobs, bokeh, or glassmorphism.
 - Do not make the app page feel like a marketing page.
 - Do not use placeholder copy where Korealpha product content exists.
+- Do not install Tailark, React Bits, Magic UI, Kokonut UI, or other registry
+  components until a shortlist has been reviewed and approved.
 
 ## Landing Checklist
 
@@ -62,11 +65,14 @@ When editing `/`, preserve or create:
 - product name and demo CTA
 - `Read Korea before the market does.`
 - Korean local-information alpha thesis
+- product dashboard mockup as the primary visual
 - problem section
 - how-it-works sequence
 - Seoul mayoral live demo preview
+- source-backed evidence snapshot
 - agentic proof with receipt and Arc transfer
-- traction metrics
+- risk FAQ or risk-control section
+- traction/proof metrics
 - footer links when available
 
 ## Demo App Checklist
