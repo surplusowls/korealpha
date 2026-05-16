@@ -18,10 +18,12 @@ Testnet paper-trade escrow.
 - Product strategy and discovery: `docs/PRODUCT_DISCOVERY.md`
 - Product requirements: `docs/PRD.md`
 - AI development harness: `docs/AI_DEVELOPMENT_HARNESS.md`
+- Project setup scaffold: `docs/PROJECT_SETUP.md`
 - Runtime stack: `docs/RUNTIME_STACK.md`
 
 Read the PRD before product behavior changes. Read the runtime stack before
-architecture, dependency, or scaffold changes.
+architecture changes. Read the project setup scaffold before dependency,
+tooling, or scaffold changes.
 
 ## Harness Contract
 

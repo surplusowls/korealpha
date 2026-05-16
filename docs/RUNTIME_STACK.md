@@ -6,24 +6,30 @@ Last updated: 2026-05-16
 
 This document defines the product runtime stack for korealpha.
 
-The runtime stack is separate from the AI development harness. The harness explains how humans and AI agents should build the project. This document explains what the actual product should run on.
+The runtime stack is separate from the AI development harness and the project
+setup scaffold.
+
+- `docs/AI_DEVELOPMENT_HARNESS.md` explains how humans and AI agents should
+  build the project.
+- `docs/PROJECT_SETUP.md` explains how to initialize the repository.
+- This document explains what the actual product should run on.
 
 ## 2. Recommended MVP Stack
 
-| Layer | Choice | Reason |
-| --- | --- | --- |
-| Web app | Next.js App Router | Fast full-stack product development with colocated UI and route handlers. |
-| Language | TypeScript | Strong typing across UI, agent schemas, API routes, and blockchain code. |
-| UI | Tailwind CSS, shadcn/ui, lucide-react | Fast, polished, dashboard-quality UI. |
-| AI runtime | Vercel AI SDK | Good TypeScript support for structured output and tool calling. |
-| Schema validation | zod | Shared validation for agent outputs, API inputs, receipts, and fixtures. |
-| Chain client | viem | Typed EVM client for Arc Testnet reads and transactions. |
-| Database | Drizzle ORM with SQLite for local MVP | Simple local persistence, Postgres-compatible migration path. |
-| Deployment | Vercel | Natural Next.js deployment path. |
-| Unit tests | Vitest | Fast TypeScript test runner. |
-| E2E tests | Playwright | Browser-level verification for demo flow. |
-| Formatting | Prettier | Consistent code formatting. |
-| Linting | ESLint | Static checks for Next.js and TypeScript. |
+| Layer             | Choice                                | Reason                                                                    |
+| ----------------- | ------------------------------------- | ------------------------------------------------------------------------- |
+| Web app           | Next.js App Router                    | Fast full-stack product development with colocated UI and route handlers. |
+| Language          | TypeScript                            | Strong typing across UI, agent schemas, API routes, and blockchain code.  |
+| UI                | Tailwind CSS, shadcn/ui, lucide-react | Fast, polished, dashboard-quality UI.                                     |
+| AI runtime        | Vercel AI SDK                         | Good TypeScript support for structured output and tool calling.           |
+| Schema validation | zod                                   | Shared validation for agent outputs, API inputs, receipts, and fixtures.  |
+| Chain client      | viem                                  | Typed EVM client for Arc Testnet reads and transactions.                  |
+| Database          | Drizzle ORM with SQLite for local MVP | Simple local persistence, Postgres-compatible migration path.             |
+| Deployment        | Vercel                                | Natural Next.js deployment path.                                          |
+| Unit tests        | Vitest                                | Fast TypeScript test runner.                                              |
+| E2E tests         | Playwright                            | Browser-level verification for demo flow.                                 |
+| Formatting        | Prettier                              | Consistent code formatting.                                               |
+| Linting           | ESLint                                | Static checks for Next.js and TypeScript.                                 |
 
 ## 3. Product Runtime Responsibilities
 
@@ -43,7 +49,60 @@ The runtime must support:
 - feedback logging
 - traction metrics
 
-## 4. Proposed App Structure
+## 4. Runtime Module Shape
+
+The initial scaffold is defined in `docs/PROJECT_SETUP.md`. The runtime should
+then converge on the following module shape:
+
+```txt
+src/
+  app/
+    page.tsx
+    markets/
+      page.tsx
+      [marketId]/
+        page.tsx
+    api/
+      markets/
+        route.ts
+      analyze/
+        route.ts
+      decisions/
+        route.ts
+      arc/
+        transfer/
+          route.ts
+  components/
+    dashboard/
+    evidence/
+    market/
+    receipt/
+    portfolio/
+  lib/
+    agent/
+      schemas.ts
+      prompts.ts
+      analyze-market.ts
+      scoring.ts
+    arc/
+      chain.ts
+      usdc.ts
+      transfer.ts
+    market-data/
+      polymarket.ts
+      seeded-markets.ts
+      seeded-evidence.ts
+    db/
+      schema.ts
+      client.ts
+    metrics/
+      traction.ts
+tests/
+  unit/
+  e2e/
+```
+
+Legacy non-`src` shape for reference only:
 
 ```txt
 app/
@@ -173,11 +232,11 @@ MVP can seed the market and evidence data in code, then persist decisions, trans
 
 ## 8. API Routes
 
-| Route | Method | Purpose |
-| --- | --- | --- |
-| `/api/markets` | `GET` | List market cards and dashboard metrics. |
-| `/api/analyze` | `POST` | Run agent analysis for a market outcome. |
-| `/api/decisions` | `GET` | List previous decision receipts. |
+| Route               | Method | Purpose                                          |
+| ------------------- | ------ | ------------------------------------------------ |
+| `/api/markets`      | `GET`  | List market cards and dashboard metrics.         |
+| `/api/analyze`      | `POST` | Run agent analysis for a market outcome.         |
+| `/api/decisions`    | `GET`  | List previous decision receipts.                 |
 | `/api/arc/transfer` | `POST` | Execute Arc Testnet paper-trade escrow transfer. |
 
 The transfer route must not accept arbitrary transfer instructions from the browser. It should accept a decision receipt id, load the server-side decision, validate risk rules, and then transfer.
@@ -234,7 +293,7 @@ ARC_TRANSFER_MODE=live
 
 Build in this order:
 
-1. Next.js scaffold.
+1. Project scaffold from `docs/PROJECT_SETUP.md`.
 2. Tailwind and shadcn setup.
 3. Static dashboard using seeded market data.
 4. Market detail page.

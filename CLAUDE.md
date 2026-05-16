@@ -32,3 +32,4 @@ For project-specific rules, read:
 - Arc Testnet work: `.agents/rules/blockchain.md`
 - verification work: `.agents/rules/testing.md`
 - demo preparation: `.agents/skills/korealpha-demo/SKILL.md`
+- dependency, tooling, or scaffold work: `docs/PROJECT_SETUP.md`

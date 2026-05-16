@@ -1,0 +1,11 @@
+.agents/
+.claude/
+.next/
+node_modules/
+coverage/
+test-results/
+playwright-report/
+pnpm-lock.yaml
+docs/AI_DEVELOPMENT_HARNESS.md
+docs/PRD.md
+docs/PRODUCT_DISCOVERY.md
