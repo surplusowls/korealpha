@@ -1,6 +1,10 @@
+import { randomUUID } from "node:crypto";
+
 import { NextResponse } from "next/server";
 
 import { agentDecisionSchema } from "@/lib/agent/schemas";
+import { db } from "@/lib/db/client";
+import { agentDecisions } from "@/lib/db/schema";
 import { getSeededMarket } from "@/lib/market-data/seeded-markets";
 
 export async function POST(request: Request) {
@@ -35,5 +39,32 @@ export async function POST(request: Request) {
     evidenceScores: [],
   });
 
-  return NextResponse.json({ decision });
+  const decisionId = randomUUID();
+  await db.insert(agentDecisions).values({
+    id: decisionId,
+    marketId: decision.marketId,
+    outcome: decision.outcome,
+    confidence: decision.confidence,
+    action: decision.action,
+    marketProbability: decision.marketProbability,
+    agentProbability: decision.agentProbability,
+    edge: decision.edge,
+    suggestedExposureUsdc: decision.suggestedExposureUsdc,
+    transferRationale:
+      decision.action === "trade" || decision.action === "watch"
+        ? decision.rationale
+        : "Transfer not allowed for avoid action",
+    noTransferReason:
+      decision.action === "avoid"
+        ? "Avoid action disables Arc transfer"
+        : null,
+    createdAt: new Date(),
+  });
+
+  return NextResponse.json({
+    decision: {
+      id: decisionId,
+      ...decision,
+    },
+  });
 }
