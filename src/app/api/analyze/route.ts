@@ -3,7 +3,7 @@ import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 
 import { agentDecisionSchema } from "@/lib/agent/schemas";
-import { db } from "@/lib/db/client";
+import { getDb } from "@/lib/db/client";
 import { agentDecisions } from "@/lib/db/schema";
 import { getSeededMarket } from "@/lib/market-data/seeded-markets";
 
@@ -40,6 +40,7 @@ export async function POST(request: Request) {
   });
 
   const decisionId = randomUUID();
+  const db = getDb();
   await db.insert(agentDecisions).values({
     id: decisionId,
     marketId: decision.marketId,

@@ -7,7 +7,7 @@ import { createWalletClient, getAddress, http } from "viem";
 import { arcTestnet } from "@/lib/arc/chain";
 import { validateTransferEligibility } from "@/lib/arc/eligibility";
 import { toUsdcUnits } from "@/lib/arc/usdc";
-import { db } from "@/lib/db/client";
+import { getDb } from "@/lib/db/client";
 import { agentDecisions, arcTransactions } from "@/lib/db/schema";
 import { env } from "@/lib/env";
 
@@ -89,6 +89,7 @@ function createArcError(
 }
 
 export async function getDecisionByReceiptId(receiptId: string) {
+  const db = getDb();
   const rows = await db
     .select({
       id: agentDecisions.id,
@@ -104,6 +105,7 @@ export async function getDecisionByReceiptId(receiptId: string) {
 }
 
 export async function getLatestArcTransactionByReceiptId(receiptId: string) {
+  const db = getDb();
   const rows = await db
     .select()
     .from(arcTransactions)
@@ -180,6 +182,7 @@ async function persistTx(
     failureReason?: string;
   },
 ) {
+  const db = getDb();
   const now = new Date();
   const explorerUrl = params.txHash
     ? `${env.ARC_EXPLORER_URL}/tx/${params.txHash}`
@@ -348,6 +351,7 @@ export async function executeArcTransfer(
     throw createArcError("RECEIPT_NOT_FOUND", "Decision receipt not found", 404);
   }
 
+  const db = getDb();
   const existingSubmitted = await db
     .select()
     .from(arcTransactions)
