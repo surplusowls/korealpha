@@ -21,6 +21,7 @@ Use these project skills when appropriate:
 - `/ce-code-review`
 - `/ce-compound`
 - `/korealpha-demo`
+- `/korealpha-design`
 
 Use vendored `ce-*` subagents from `.claude/agents` when a Compound Engineering
 skill asks for specialized review, research, or document-review personas.
@@ -28,8 +29,11 @@ skill asks for specialized review, research, or document-review personas.
 For project-specific rules, read:
 
 - frontend work: `.agents/rules/frontend.md`
+- frontend design work: `DESIGN.md`, `docs/DESIGN_SYSTEM.md`, and
+  `.agents/skills/korealpha-design/SKILL.md`
 - agent runtime work: `.agents/rules/agent-runtime.md`
 - Arc Testnet work: `.agents/rules/blockchain.md`
 - verification work: `.agents/rules/testing.md`
 - demo preparation: `.agents/skills/korealpha-demo/SKILL.md`
+- frontend design workflow: `.agents/skills/korealpha-design/SKILL.md`
 - dependency, tooling, or scaffold work: `docs/PROJECT_SETUP.md`

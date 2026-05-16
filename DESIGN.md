@@ -1,0 +1,234 @@
+---
+version: alpha
+name: Korealpha
+description: Credible AI market-intelligence SaaS for Korean prediction-market alpha.
+colors:
+  primary: "#121417"
+  primary-foreground: "#F8FAFC"
+  secondary: "#E7ECEF"
+  secondary-foreground: "#171A1F"
+  accent: "#0F766E"
+  accent-foreground: "#ECFDF5"
+  neutral: "#F8FAFC"
+  surface: "#FFFFFF"
+  muted: "#EEF2F5"
+  muted-foreground: "#56616D"
+  border: "#DDE3EA"
+  success: "#0F766E"
+  warning: "#A16207"
+  destructive: "#B42318"
+  chart-positive: "#0F766E"
+  chart-negative: "#B42318"
+  chart-neutral: "#64707D"
+typography:
+  display:
+    fontFamily: Geist Sans
+    fontSize: 3.5rem
+    fontWeight: 650
+    lineHeight: 1
+    letterSpacing: 0
+  h1:
+    fontFamily: Geist Sans
+    fontSize: 2.25rem
+    fontWeight: 650
+    lineHeight: 1.1
+    letterSpacing: 0
+  h2:
+    fontFamily: Geist Sans
+    fontSize: 1.5rem
+    fontWeight: 620
+    lineHeight: 1.2
+    letterSpacing: 0
+  body:
+    fontFamily: Geist Sans
+    fontSize: 1rem
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: 0
+  label:
+    fontFamily: Geist Sans
+    fontSize: 0.8125rem
+    fontWeight: 550
+    lineHeight: 1.2
+    letterSpacing: 0
+  mono:
+    fontFamily: Geist Mono
+    fontSize: 0.875rem
+    fontWeight: 450
+    lineHeight: 1.45
+    letterSpacing: 0
+rounded:
+  sm: 4px
+  md: 8px
+  lg: 10px
+spacing:
+  xs: 4px
+  sm: 8px
+  md: 16px
+  lg: 24px
+  xl: 32px
+  2xl: 48px
+components:
+  button-primary:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.primary-foreground}"
+    rounded: "{rounded.md}"
+    height: 40px
+  button-secondary:
+    backgroundColor: "{colors.secondary}"
+    textColor: "{colors.secondary-foreground}"
+    rounded: "{rounded.md}"
+    height: 40px
+  button-accent:
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.accent-foreground}"
+    rounded: "{rounded.md}"
+    height: 40px
+  landing-hero:
+    backgroundColor: "{colors.neutral}"
+    textColor: "{colors.primary}"
+  dashboard-card:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.primary}"
+    rounded: "{rounded.md}"
+  table-row:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.primary}"
+    rounded: "{rounded.sm}"
+  table-border:
+    backgroundColor: "{colors.border}"
+    textColor: "{colors.primary}"
+  receipt:
+    backgroundColor: "{colors.muted}"
+    textColor: "{colors.primary}"
+    rounded: "{rounded.md}"
+  receipt-muted:
+    backgroundColor: "{colors.muted}"
+    textColor: "{colors.muted-foreground}"
+  badge-positive:
+    backgroundColor: "{colors.success}"
+    textColor: "{colors.accent-foreground}"
+    rounded: "{rounded.sm}"
+  badge-warning:
+    backgroundColor: "{colors.warning}"
+    textColor: "{colors.primary-foreground}"
+    rounded: "{rounded.sm}"
+  badge-negative:
+    backgroundColor: "{colors.destructive}"
+    textColor: "{colors.primary-foreground}"
+    rounded: "{rounded.sm}"
+  chart-positive-bar:
+    backgroundColor: "{colors.chart-positive}"
+    textColor: "{colors.primary-foreground}"
+  chart-negative-bar:
+    backgroundColor: "{colors.chart-negative}"
+    textColor: "{colors.primary-foreground}"
+  chart-neutral-bar:
+    backgroundColor: "{colors.chart-neutral}"
+    textColor: "{colors.primary-foreground}"
+---
+
+## Overview
+
+Korealpha is a credible AI market-intelligence SaaS product. It converts Korean
+local information into prediction-market intelligence, then shows the agent's
+reasoning and Arc Testnet paper-trade commitment.
+
+The product should feel like a real startup landing page plus a working
+market-intelligence application. It should not feel like a political campaign,
+news magazine, crypto meme site, or generic purple AI SaaS template.
+
+## Colors
+
+Use a neutral graphite base with a restrained blue-green accent. The neutral
+system creates trust and readability; the accent marks Korean alpha, positive
+edge, live agent decisions, and Arc/USDC proof.
+
+- **Primary:** near-black graphite for headings, primary actions, and strongest
+  UI emphasis.
+- **Neutral and surface:** clean light backgrounds for landing and app sections.
+- **Muted:** low-emphasis dashboard surfaces, helper text, and receipt blocks.
+- **Accent:** use sparingly for active states, positive edge, proof, and key
+  calls to action.
+- **Warning/destructive:** use only for risk, negative edge, failed transfers,
+  or explicit caution states.
+
+Do not introduce broad color palettes per page. Do not use dominant purple,
+cyberpunk, glassmorphism, meme-coin neon, political party colors, or campaign
+branding.
+
+## Typography
+
+Use Geist Sans for product UI and Geist Mono for transaction hashes, receipt
+IDs, wallet addresses, structured scores, and compact market metadata.
+
+Headings should be direct and product-like. Avoid oversized expressive type
+inside dashboard panels. Use display-scale type only in the landing hero.
+
+## Layout
+
+The product has two surfaces:
+
+1. `/` is the landing page. It explains the product and routes users to the live
+   Seoul mayoral demo.
+2. `/markets/seoul-mayor-2026` is the working app surface. It shows market
+   intelligence, evidence, agent reasoning, action, and Arc transaction proof.
+
+Landing layout should follow standard SaaS page structure: nav, hero, problem,
+how it works, demo preview, agentic proof, traction metrics, footer.
+
+App layout should be dense, scannable, and operational. Prioritize probability,
+edge, confidence, evidence, decision receipt, and transaction state over
+decorative composition.
+
+## Elevation & Depth
+
+Prefer borders and subtle surface contrast over heavy shadows. Use shadows only
+when they clarify hierarchy, such as floating nav or modal surfaces. Avoid
+layered glass panels and decorative blur effects.
+
+## Shapes
+
+Use moderate radius. Cards and buttons should feel precise and professional, not
+pillowy. Default card radius should stay at or under 8px unless inherited from
+the shadcn token system.
+
+## Components
+
+Use shadcn/ui components before custom markup. Compose with existing primitives:
+
+- `Button` or `buttonVariants` for actions and links.
+- `Card` for repeated items, receipts, and framed tools.
+- `Badge` for status, action, confidence, and market labels.
+- `Table` for evidence and market rows.
+- `Tabs` for mode or view switches.
+- `Separator` instead of custom borders where appropriate.
+- `Skeleton` for loading states.
+- `Tooltip` for compact icon controls.
+
+Use lucide-react icons inside buttons and compact controls. Icons in buttons must
+use the local shadcn convention with `data-icon`.
+
+Do not nest cards inside cards. Do not build custom badge/button/table lookalikes
+when a shadcn component exists.
+
+## Do's and Don'ts
+
+Do:
+
+- Make the landing page feel like a product a judge can understand in 30
+  seconds.
+- Keep the live demo CTA visible and concrete.
+- Show agentic proof: action, sizing, decision receipt, Arc Testnet transfer.
+- Use real Korealpha content instead of placeholder marketing copy.
+- Keep landing and app pages visually related.
+- Preserve readability on mobile and desktop.
+
+Don't:
+
+- Build an oversized marketing hero that hides the actual demo.
+- Make the app feel like a landing page.
+- Add unsupported prediction certainty or gambling language.
+- Use political campaign visuals or candidate branding.
+- Add decorative gradients, orbs, blobs, bokeh, or stock-like abstract imagery.
+- Introduce raw Tailwind color utilities when semantic tokens will work.

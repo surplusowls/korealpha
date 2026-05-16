@@ -20,10 +20,12 @@ Testnet paper-trade escrow.
 - AI development harness: `docs/AI_DEVELOPMENT_HARNESS.md`
 - Project setup scaffold: `docs/PROJECT_SETUP.md`
 - Runtime stack: `docs/RUNTIME_STACK.md`
+- Design system: `DESIGN.md` and `docs/DESIGN_SYSTEM.md`
 
 Read the PRD before product behavior changes. Read the runtime stack before
 architecture changes. Read the project setup scaffold before dependency,
-tooling, or scaffold changes.
+tooling, or scaffold changes. Read the design system before frontend UI,
+styling, landing page, dashboard, or shadcn/Tailwind changes.
 
 ## Harness Contract
 
@@ -122,6 +124,7 @@ Rules:
 ## Project-Specific Rules
 
 - Frontend rules: `.agents/rules/frontend.md`
+- Frontend design skill: `.agents/skills/korealpha-design/SKILL.md`
 - Agent runtime rules: `.agents/rules/agent-runtime.md`
 - Blockchain rules: `.agents/rules/blockchain.md`
 - Testing rules: `.agents/rules/testing.md`
@@ -141,6 +144,7 @@ Before reporting work as complete:
 Expected commands after scaffold exists:
 
 ```bash
+pnpm design:lint
 pnpm lint
 pnpm typecheck
 pnpm test

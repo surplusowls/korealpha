@@ -4,6 +4,8 @@ Use these rules for dashboard, market detail, evidence, receipt, and portfolio U
 
 ## Product Shape
 
+- Build a credible SaaS-style landing page at `/` that explains the product and
+  routes users into the live demo.
 - Build a serious market-intelligence dashboard, not a marketing landing page.
 - Prioritize dense, scannable information over decorative composition.
 - Keep the first demo focused on the Seoul mayoral market.
@@ -16,6 +18,8 @@ Use these rules for dashboard, market detail, evidence, receipt, and portfolio U
 - Use Tailwind CSS.
 - Use shadcn/ui components where they fit.
 - Use lucide-react icons for buttons and compact controls.
+- Follow `DESIGN.md` and `docs/DESIGN_SYSTEM.md` before changing visual
+  direction, theme tokens, page layout, or component composition.
 
 ## Layout Rules
 
@@ -27,6 +31,7 @@ Use these rules for dashboard, market detail, evidence, receipt, and portfolio U
 
 ## Required MVP Views
 
+- SaaS-style landing page
 - Market dashboard
 - Seoul mayoral market detail
 - Evidence table
