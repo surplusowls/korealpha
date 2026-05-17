@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { executeArcTransfer, toTransferError } from "@/lib/arc/transfer";
+import { getArcTransferQuote, toTransferError } from "@/lib/arc/transfer";
 
 export async function POST(request: Request) {
   const body = (await request.json().catch(() => null)) as {
@@ -9,14 +9,14 @@ export async function POST(request: Request) {
 
   if (!body?.receiptId) {
     return NextResponse.json(
-      { error: "receiptId is required" },
+      { error: { code: "BAD_REQUEST", message: "receiptId is required" } },
       { status: 400 },
     );
   }
 
   try {
-    const result = await executeArcTransfer(body.receiptId);
-    return NextResponse.json({ data: result });
+    const quote = await getArcTransferQuote(body.receiptId);
+    return NextResponse.json({ data: quote });
   } catch (error) {
     const transferError = toTransferError(error);
     return NextResponse.json(
